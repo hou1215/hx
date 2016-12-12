@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80px">
+
+        <TextView
+            android:id="@+id/goods_name"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="56px"
+            android:textSize="30px"
+            android:textColor="@color/color_text"
+            android:text="糖醋鱼鸡蛋饭"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <LinearLayout
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/cost_price"
+                android:textSize="30px"
+                android:textColor="@color/color_text"
+                android:text="¥15"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:gravity="right"
+                android:id="@+id/privilege"
+                android:textSize="30px"
+                android:textColor="@color/color_price"
+                android:text="¥1"
+                android:layout_width="110px"
+                android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

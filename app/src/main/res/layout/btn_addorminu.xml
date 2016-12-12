@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/count"
+            android:textSize="30px"
+            android:text="2"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/color_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+        <TextView
+            android:layout_margin="15px"
+            android:id="@+id/miun"
+            android:gravity="center"
+            android:background="@drawable/tv_border"
+            android:text="-"
+            android:layout_width="40px"
+            android:layout_height="40px" />
+
+        <TextView
+            android:layout_margin="15px"
+            android:id="@+id/add"
+            android:gravity="center"
+            android:background="@drawable/tv_border"
+            android:layout_alignParentRight="true"
+            android:text="+"
+            android:layout_width="40px"
+            android:layout_height="40px" />
+
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+</RelativeLayout>

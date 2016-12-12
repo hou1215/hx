@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/theme"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:background="@drawable/tv_style"
+        android:layout_marginTop="300px"
+        android:layout_centerHorizontal="true"
+        android:layout_width="660px"
+        android:layout_height="680px">
+
+        <EditText
+            android:id="@+id/et_phone"
+            android:background="@null"
+            android:textSize="30px"
+            android:hint="请输入手机号"
+            android:layout_marginTop="45px"
+            android:layout_marginLeft="45px"
+            android:layout_marginRight="45px"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:id="@+id/line"
+            android:layout_marginLeft="40px"
+            android:layout_marginRight="40px"
+            android:layout_marginTop="16px"
+            android:background="@color/line_color"
+            android:layout_below="@id/et_phone"
+            android:layout_width="match_parent"
+            android:layout_height="1px"/>
+
+        <EditText
+            android:layout_below="@id/line"
+            android:id="@+id/et_pass"
+            android:background="@null"
+            android:textSize="30px"
+            android:hint="请输入密码"
+            android:layout_marginTop="45px"
+            android:layout_marginLeft="45px"
+            android:layout_marginRight="45px"
+            android:layout_width="360px"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:id="@+id/line01"
+            android:layout_marginLeft="40px"
+            android:layout_marginRight="40px"
+            android:layout_marginTop="16px"
+            android:background="@color/line_color"
+            android:layout_below="@id/et_pass"
+            android:layout_width="360px"
+            android:layout_height="1px"/>
+
+        <TextView
+            android:id="@+id/tv_get_code"
+            android:layout_below="@id/line"
+            android:gravity="center"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50px"
+            android:layout_marginTop="30px"
+            android:background="@drawable/btn_style_gray"
+            android:textColor="@color/white"
+            android:textSize="32px"
+            android:text="获取验证码"
+            android:layout_width="200px"
+            android:layout_height="60px" />
+
+        <TextView
+            android:id="@+id/tv_login"
+            android:layout_below="@id/line01"
+            android:layout_marginTop="100px"
+            android:gravity="center"
+            android:background="@drawable/btn_style_g"
+            android:textColor="@color/white"
+            android:textSize="38px"
+            android:layout_centerHorizontal="true"
+            android:text="快速登录"
+            android:layout_width="560px"
+            android:layout_height="96px" />
+
+        <TextView
+            android:id="@+id/tv_tip"
+            android:layout_below="@id/tv_login"
+            android:layout_marginTop="140px"
+            android:gravity="center_horizontal"
+            android:textSize="24px"
+            android:layout_centerHorizontal="true"
+            android:text="未注册的手机号将自动创建为本平台用户。注册登录行为默认你已阅读并接受《产品服务》"
+            android:layout_width="560px"
+            android:layout_height="96px" />
+
+
+    </RelativeLayout>
+
+
+
+
+</RelativeLayout>

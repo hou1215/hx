@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="theme">#26c281</color>
+    <color name="line_color">#7f7f7f</color>
+    <color name="tc_home_main">#e94140</color>
+    <color name="tc_gray">#666666</color>
+    <color name="default_color">#e94140</color>
+
+    <color name="line">#009456</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+    <color name="color_bg">#e5e5e5</color>
+    <color name="color_text">#555555</color>
+    <color name="color_price">#ff5959</color>
+
+</resources>

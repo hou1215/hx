@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.youmi.tt.activity.GoodsDetailActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.zhy.autolayout.AutoLinearLayout
+            android:background="@color/white"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+            <include
+                layout="@layout/tab_title"/>
+
+
+            <ImageView
+                android:background="@mipmap/item"
+                android:layout_margin="25px"
+                android:layout_width="664px"
+                android:layout_height="664px" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="300px">
+
+                <TextView
+                    android:id="@+id/goods_title"
+                    android:textColor="@color/color_text"
+                    android:text="苦瓜豆腐牛肉饭"
+                    android:textSize="42px"
+                    android:layout_marginLeft="50px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/goods_price"
+                    android:layout_below="@id/goods_title"
+                    android:textColor="@color/color_price"
+                    android:layout_marginTop="15px"
+                    android:text="¥15.8"
+                    android:textSize="42px"
+                    android:layout_marginLeft="50px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+                <TextView
+                    android:text="销量：25"
+                    android:textSize="24px"
+                    android:layout_marginLeft="50px"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="50px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/goods_price" />
+
+
+                <View
+                    android:id="@+id/line"
+                    android:layout_marginTop="10px"
+                    android:layout_below="@id/goods_price"
+                    android:layout_marginLeft="60px"
+                    android:layout_marginRight="60px"
+                    android:background="@mipmap/orders_line_bg"
+                    android:layout_width="match_parent"
+                    android:layout_height="2px"/>
+
+                <TextView
+                    android:id="@+id/yi_yuan_go"
+                    android:textColor="@color/color_price"
+                    android:layout_below="@id/line"
+                    android:layout_marginTop="10px"
+                    android:text="新用户首单1元购"
+                    android:textSize="20px"
+                    android:layout_marginLeft="87px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/ban_jia_go"
+                    android:textColor="@color/color_price"
+                    android:layout_below="@id/yi_yuan_go"
+                    android:layout_marginTop="18px"
+                    android:text="新用户第2单半价购"
+                    android:textSize="20px"
+                    android:layout_marginLeft="87px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:textColor="@color/color_price"
+                    android:layout_below="@id/ban_jia_go"
+                    android:layout_marginTop="18px"
+                    android:text="下单成功送水果一份"
+                    android:textSize="20px"
+                    android:layout_marginLeft="87px"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:background="@color/color_bg"
+                android:layout_width="match_parent"
+                android:layout_height="137px">
+
+                <TextView
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="40px"
+                    android:text="加入购物车"
+                    android:background="@drawable/btn_style_r"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="50px"
+                    android:layout_alignParentRight="true"
+                    android:layout_width="460px"
+                    android:layout_height="90px" />
+
+
+            </RelativeLayout>
+
+
+        </com.zhy.autolayout.AutoLinearLayout>
+
+
+    </ScrollView>
+
+</RelativeLayout>

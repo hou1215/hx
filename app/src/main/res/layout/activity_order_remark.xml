@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <include layout="@layout/tab_title" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_bg">
+
+        <RelativeLayout
+            android:background="@drawable/tv_style"
+            android:id="@+id/rl_content"
+            android:layout_width="660px"
+            android:layout_height="320px"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="25px">
+
+            <EditText
+                android:text="多加辣。"
+                android:background="@null"
+                android:id="@+id/content"
+                android:padding="30px"
+                android:textSize="25px"
+                android:gravity="top"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:padding="30px"
+                android:text="8/300字"
+                android:id="@+id/tv_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_below="@id/rl_content"
+            android:layout_marginTop="60px"
+            android:background="@drawable/btn_style_g"
+            android:id="@+id/action"
+            android:textColor="@color/white"
+            android:textSize="40px"
+            android:gravity="center"
+            android:layout_centerHorizontal="true"
+            android:layout_marginRight="25px"
+            android:text="保 存"
+            android:layout_width="610px"
+            android:layout_height="100px" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

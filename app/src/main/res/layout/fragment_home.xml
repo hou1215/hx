@@ -1,0 +1,21 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.zhy.autolayout.AutoRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <com.youmi.tt.utils.v7.RecyclerViewWrap
+            android:id="@+id/recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#e5e5e5" />
+
+        <include layout="@layout/layout_loadview" />
+
+    </com.zhy.autolayout.AutoRelativeLayout>
+
+
+</RelativeLayout>

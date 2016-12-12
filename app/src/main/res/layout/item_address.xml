@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:background="@color/color_bg"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_marginTop="20px"
+        android:background="@drawable/tv_style"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical"
+        android:layout_width="666px"
+        android:layout_height="200px">
+
+
+        <TextView
+            android:layout_marginTop="44px"
+            android:layout_marginLeft="30px"
+            android:textSize="30px"
+            android:id="@+id/name"
+            android:text="张惠妹"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_toRightOf="@id/name"
+            android:layout_alignBottom="@id/name"
+            android:layout_marginLeft="30px"
+            android:textSize="30px"
+            android:id="@+id/gendle"
+            android:text="女士"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_toRightOf="@id/gendle"
+            android:layout_alignBottom="@id/name"
+            android:layout_marginLeft="30px"
+            android:textSize="30px"
+            android:id="@+id/phone"
+            android:text="18697925677"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginTop="10px"
+            android:layout_alignLeft="@id/name"
+            android:layout_below="@id/name"
+            android:textSize="30px"
+            android:id="@+id/address"
+            android:text="台湾街19栋"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:layout_marginTop="10px"
+            android:layout_alignLeft="@id/address"
+            android:layout_below="@id/address"
+            android:textSize="30px"
+            android:id="@+id/room"
+            android:text="A单元808房"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <View
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="20px"
+            android:layout_marginRight="160px"
+            android:background="@mipmap/x"
+            android:layout_width="2px"
+            android:layout_height="160px"/>
+
+        <ImageView
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="50px"
+            android:background="@mipmap/edit"
+            android:layout_centerVertical="true"
+            android:layout_width="65px"
+            android:layout_height="65px" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

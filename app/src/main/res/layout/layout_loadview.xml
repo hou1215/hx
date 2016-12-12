@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/loadview_ll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_centerInParent="true"
+    android:background="#ffffff"
+    android:clickable="true"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:visibility="gone">
+
+    <com.youmi.tt.utils.v7.ProgressImageView
+        android:id="@+id/loadview_pb"
+        android:layout_width="50px"
+        android:layout_height="50px"
+        android:src="@drawable/spinner_76_inner_holo" />
+
+    <TextView
+        android:id="@+id/loadview_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10px"
+        android:gravity="center"
+        android:text="加载中"
+        android:textColor="#999999"
+        android:textSize="24px" />
+
+</LinearLayout>
