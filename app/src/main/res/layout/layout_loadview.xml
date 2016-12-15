@@ -10,7 +10,7 @@
     android:orientation="vertical"
     android:visibility="gone">
 
-    <com.youmi.tt.utils.v7.ProgressImageView
+    <com.youmi.tt.view.ProgressImageView
         android:id="@+id/loadview_pb"
         android:layout_width="50px"
         android:layout_height="50px"

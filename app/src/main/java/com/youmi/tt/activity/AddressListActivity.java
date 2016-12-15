@@ -9,7 +9,7 @@ import com.youmi.tt.adapter.AddressListAdapter;
 import com.youmi.tt.base.BaseActivity;
 import com.youmi.tt.base.BaseAdapter;
 import com.youmi.tt.entity.Address;
-import com.youmi.tt.utils.v7.RecyclerViewWrap;
+import com.youmi.tt.view.recyclerview.RecyclerViewWrap;
 
 import java.util.ArrayList;
 import java.util.List;

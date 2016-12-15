@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="wraprecyclerview-1.0.1">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.kevin/wraprecyclerview/1.0.1/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.kevin/wraprecyclerview/1.0.1/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.kevin/wraprecyclerview/1.0.1/7af8b782516a09830d5d967538e5feb2412e7f2f/wraprecyclerview-1.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

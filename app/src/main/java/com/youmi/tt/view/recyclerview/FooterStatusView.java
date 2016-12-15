@@ -1,7 +1,8 @@
-package com.youmi.tt.utils.v7;
+package com.youmi.tt.view.recyclerview;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -9,15 +10,11 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.youmi.tt.R;
-import com.youmi.tt.base.BaseRelativeLayout;
-import com.youmi.tt.utils.CommonUtils;
-import com.youmi.tt.utils.v7.ProgressImageView;
 
 
 /**
  * 底部View 用于展示数据加载情况
  *
- * @author dzl 2016年3月1日
  */
 public class FooterStatusView extends BaseRelativeLayout {
 
@@ -40,7 +37,6 @@ public class FooterStatusView extends BaseRelativeLayout {
     public TextView footer_tv_error;
 
     public LinearLayout footer_ll_loading;
-    public ProgressImageView footer_img_loading;
     public TextView footer_tv_loading;
 
     public RelativeLayout footer_ll_placeholder;
@@ -61,23 +57,21 @@ public class FooterStatusView extends BaseRelativeLayout {
 
     @Override
     protected void init(Context context) {
+        footer_rl_content = (RelativeLayout)  LayoutInflater.from(context).inflate(R.layout.layout_loadmore, this);
 
-        footer_rl_content = (RelativeLayout) CommonUtils.inflateView(context, R.layout.layout_loadmore, this);
+        footer_img_empty = (ImageView) footer_rl_content.findViewById(R.id.footer_img_empty);
 
-        footer_img_empty = CommonUtils.fv(R.id.footer_img_empty, footer_rl_content);
-        footer_img_loading = CommonUtils.fv(R.id.footer_img_loading, footer_rl_content);
+        footer_ll_empty = (LinearLayout) footer_rl_content.findViewById(R.id.footer_ll_empty);
+        footer_ll_end = (LinearLayout) footer_rl_content.findViewById(R.id.footer_ll_end);
+        footer_ll_loading = (LinearLayout) footer_rl_content.findViewById(R.id.footer_ll_loading);
 
-        footer_ll_empty = CommonUtils.fv(R.id.footer_ll_empty, footer_rl_content);
-        footer_ll_end = CommonUtils.fv(R.id.footer_ll_end, footer_rl_content);
-        footer_ll_loading = CommonUtils.fv(R.id.footer_ll_loading, footer_rl_content);
+        footer_ll_placeholder = (RelativeLayout) footer_rl_content.findViewById(R.id.footer_ll_placeholder);
+        footer_tv_empty = (TextView) footer_rl_content.findViewById(R.id.footer_tv_empty);
+        footer_tv_end = (TextView) footer_rl_content.findViewById(R.id.footer_tv_end);
+        footer_tv_loading = (TextView) footer_rl_content.findViewById(R.id.footer_tv_loading);
 
-        footer_ll_placeholder = CommonUtils.fv(R.id.footer_ll_placeholder, footer_rl_content);
-        footer_tv_empty = CommonUtils.fv(R.id.footer_tv_empty, footer_rl_content);
-        footer_tv_end = CommonUtils.fv(R.id.footer_tv_end, footer_rl_content);
-        footer_tv_loading = CommonUtils.fv(R.id.footer_tv_loading, footer_rl_content);
-
-        footer_ll_error = CommonUtils.fv(R.id.footer_ll_error, footer_rl_content);
-        footer_tv_error = CommonUtils.fv(R.id.footer_tv_error, footer_rl_content);
+        footer_ll_error = (LinearLayout) footer_rl_content.findViewById(R.id.footer_ll_error);
+        footer_tv_error = (TextView) footer_rl_content.findViewById(R.id.footer_tv_error);
 
         addView(footer_rl_content);
 
@@ -108,8 +102,8 @@ public class FooterStatusView extends BaseRelativeLayout {
             }
         });
 
-
     }
+
 
     public interface OnFooterViewClickListener {
 
@@ -127,6 +121,34 @@ public class FooterStatusView extends BaseRelativeLayout {
 
     public void setOnFooterViewClickListener(OnFooterViewClickListener onFooterViewClickListener) {
         this.onFooterViewClickListener = onFooterViewClickListener;
+    }
+
+    /**
+     * 设置view 可见性
+     */
+    public void setViewVisible(View view, boolean... isVisible) {
+
+        if (view == null) {
+            return;
+        }
+
+        int visible = isVisible.length > 0 && isVisible[0] ? VISIBLE : GONE;
+
+        if (visible == view.getVisibility()) {
+            return;
+        }
+
+        view.setVisibility(visible);
+    }
+
+    /**
+     * 设置 文本
+     */
+    public void setText(TextView view, CharSequence text) {
+        if (view == null) {
+            return;
+        }
+        view.setText(text);
     }
 
     /**

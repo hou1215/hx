@@ -25,8 +25,8 @@ import com.youmi.tt.base.BaseFragment;
 import com.youmi.tt.entity.TestModel;
 import com.youmi.tt.interfacelistener.OnNumberChangeListener;
 import com.youmi.tt.request.ShopCarGoodsRequst;
-import com.youmi.tt.utils.v7.RecyclerViewWrap;
 import com.youmi.tt.view.CircleImageView;
+import com.youmi.tt.view.recyclerview.RecyclerViewWrap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -87,9 +87,9 @@ public class ShorCarFragment extends BaseFragment implements ShopCarGoodsRequst.
             manager = new LinearLayoutManager(getActivity());
             recyclerview.setLayoutManager(manager);
             recyclerview.setHasFixedSize(true);
-
+            setRefreshLister(recyclerview);
             // 使用 setIAdapter 不是setAdapter
-            recyclerview.setAdapter(goodsAdapter);
+            recyclerview.setIAdapter(goodsAdapter);
             goodsAdapter.setListener(this);
 
             goodsAdapter.setOnItemClickListener(new BaseAdapter.OnItemClickListener() {
@@ -100,7 +100,7 @@ public class ShorCarFragment extends BaseFragment implements ShopCarGoodsRequst.
                 }
             });
 
-            reqData();
+            reqData(URL_LIST,LOAD_AUTO);
 
 
         }
@@ -108,11 +108,11 @@ public class ShorCarFragment extends BaseFragment implements ShopCarGoodsRequst.
         return view;
     }
 
-    private void reqData() {
+    private void reqData(int url_type, int load_type) {
         if (requst == null) {
             requst = new ShopCarGoodsRequst(this,true);
         }
-        requst.reqData(URL_LIST, LOAD_AUTO);
+        requst.reqData(url_type, load_type);
     }
 
     @OnClick(R.id.clear)
@@ -173,9 +173,21 @@ public class ShorCarFragment extends BaseFragment implements ShopCarGoodsRequst.
                 setViewVisible(loadview_ll);
 
             } else if (load_type == LOAD_TOP) {
-
+                recyclerview.setRefreshing(false);
             }
         }
+    }
+
+
+    @Override
+    public void onRefresh() {
+        super.onRefresh();
+        reqData(URL_LIST,LOAD_TOP);
+    }
+
+    @Override
+    public void onLoadMore(View view) {
+        super.onLoadMore(view);
     }
 
     /**

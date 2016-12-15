@@ -52,7 +52,7 @@
                 android:background="@mipmap/x" />
 
 
-            <com.youmi.tt.utils.v7.RecyclerViewWrap
+            <com.youmi.tt.view.recyclerview.RecyclerViewWrap
                 android:layout_below="@id/view"
                 android:id="@+id/recyclerview"
                 android:layout_width="match_parent"

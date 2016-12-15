@@ -1,4 +1,4 @@
-package com.youmi.tt.utils.v7;
+package com.youmi.tt.view.recyclerview;
 
 import android.content.Context;
 import android.graphics.Canvas;

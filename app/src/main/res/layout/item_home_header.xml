@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="360px">
 
@@ -7,11 +8,16 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="360px"
         app:indicator_drawable_selected="@drawable/banner_select"
         app:indicator_drawable_unselected="@drawable/banner_unselected"
         app:indicator_height="15px"
         app:indicator_margin="5px"
         app:indicator_width="15px" />
 
-</RelativeLayout>
+    <View
+        android:background="@mipmap/x"
+        android:layout_width="match_parent"
+        android:layout_height="20px"/>
+
+</LinearLayout>

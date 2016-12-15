@@ -7,7 +7,7 @@
         android:layout_height="match_parent"
         >
 
-        <com.youmi.tt.utils.v7.RecyclerViewWrap
+        <com.youmi.tt.view.recyclerview.RecyclerViewWrap
             android:id="@+id/recyclerview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

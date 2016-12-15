@@ -45,7 +45,7 @@
         android:orientation="horizontal"
         android:visibility="gone">
 
-        <com.youmi.tt.utils.v7.ProgressImageView
+        <com.youmi.tt.view.ProgressImageView
             android:id="@+id/footer_img_loading"
             android:layout_width="60px"
             android:layout_height="60px"

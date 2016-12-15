@@ -2,7 +2,7 @@ package com.youmi.tt.fragment;
 
 
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,11 +13,10 @@ import android.widget.LinearLayout;
 import com.youmi.tt.R;
 import com.youmi.tt.adapter.HomeGoodsAdapter;
 import com.youmi.tt.base.BaseFragment;
-import com.youmi.tt.base.BaseRecyclerViewFragment;
 import com.youmi.tt.entity.TestModel;
 import com.youmi.tt.request.HomeGoodsRequst;
-import com.youmi.tt.utils.v7.RecyclerViewWrap;
 import com.youmi.tt.view.BannerViewPager;
+import com.youmi.tt.view.recyclerview.RecyclerViewWrap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,10 +28,11 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link BaseFragment} subclass.
  */
-public class HomeFragment extends BaseRecyclerViewFragment implements HomeGoodsRequst.IHomeGoodView{
+public class HomeFragment extends BaseFragment implements HomeGoodsRequst.IHomeGoodView{
 
 
     @Bind(R.id.loadview_ll) LinearLayout loadview_ll;
+    @Bind(R.id.recyclerview) RecyclerViewWrap recyclerview;
 
     private List<TestModel> datas;
     private LinearLayoutManager manager;
@@ -46,17 +46,13 @@ public class HomeFragment extends BaseRecyclerViewFragment implements HomeGoodsR
     }
 
 
-    @Override
-    public void onNetworkLazyLoad() {
-
-    }
 
     @Override
-    protected View createView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
         if (main_layout == null){
             main_layout = inflateView(R.layout.fragment_home, container);
             ButterKnife.bind(this, main_layout);
-            recyclerview = fv(R.id.recyclerview);
 
             datas = new ArrayList<>();
             datas.add(new TestModel());
@@ -65,9 +61,8 @@ public class HomeFragment extends BaseRecyclerViewFragment implements HomeGoodsR
             recyclerview.setLayoutManager(manager);
             recyclerview.setHasFixedSize(true);
 
+            recyclerview.setIAdapter(adapter);
             setRefreshLister(recyclerview);
-            // 使用 setIAdapter 不是setAdapter
-            recyclerview.setAdapter(adapter);
             initHeader();
 
             reqData(URL_LIST,LOAD_AUTO);
@@ -157,8 +152,20 @@ public class HomeFragment extends BaseRecyclerViewFragment implements HomeGoodsR
                 setViewVisible(loadview_ll);
 
             } else if (load_type == LOAD_TOP) {
-
+                recyclerview.setRefreshing(false);
             }
         }
+
+    }
+
+    @Override
+    public void onRefresh() {
+        super.onRefresh();
+        reqData(URL_LIST,LOAD_TOP);
+    }
+
+    @Override
+    public void onLoadMore(View view) {
+        super.onLoadMore(view);
     }
 }

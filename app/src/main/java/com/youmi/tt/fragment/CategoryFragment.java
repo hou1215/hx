@@ -2,6 +2,7 @@ package com.youmi.tt.fragment;
 
 
 import android.os.Bundle;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +19,7 @@ import com.youmi.tt.base.BaseAdapter;
 import com.youmi.tt.base.BaseFragment;
 import com.youmi.tt.entity.TestModel;
 import com.youmi.tt.request.CategoryGoodsRequst;
-import com.youmi.tt.utils.v7.RecyclerViewWrap;
+import com.youmi.tt.view.recyclerview.RecyclerViewWrap;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,12 +33,13 @@ import static com.youmi.tt.utils.ActivityUtil.goToActivityFromRight2Left;
 /**
  * A simple {@link BaseFragment} subclass.
  */
-public class CategoryFragment extends BaseFragment implements CategoryGoodsRequst.ICategpryGoodView {
+public class CategoryFragment extends BaseFragment implements CategoryGoodsRequst.ICategpryGoodView, SwipeRefreshLayout.OnRefreshListener {
 
 
     @Bind(R.id.listview) ListView listView;
     @Bind(R.id.recyclerview) RecyclerViewWrap recyclerview;
     @Bind(R.id.loadview_ll) LinearLayout loadview_ll;
+    @Bind(R.id.swipe_layout) SwipeRefreshLayout swipe_layout;
 
     private View view;
     private List<String> lists;
@@ -81,6 +83,9 @@ public class CategoryFragment extends BaseFragment implements CategoryGoodsRequs
             manager = new LinearLayoutManager(getActivity());
             recyclerview.setLayoutManager(manager);
             recyclerview.setHasFixedSize(true);
+
+            swipe_layout.setEnabled(true);
+            swipe_layout.setOnRefreshListener(this);
 
             // 使用 setIAdapter 不是setAdapter
             recyclerview.setAdapter(goodsAdapter);
@@ -157,7 +162,7 @@ public class CategoryFragment extends BaseFragment implements CategoryGoodsRequs
                 setViewVisible(loadview_ll, true);
 
             } else if (load_type == LOAD_TOP) {
-
+                swipe_layout.setRefreshing(true);
             }
         }
     }
@@ -169,8 +174,16 @@ public class CategoryFragment extends BaseFragment implements CategoryGoodsRequs
                 setViewVisible(loadview_ll);
 
             } else if (load_type == LOAD_TOP) {
-
+                if (swipe_layout.isRefreshing()) {
+                    swipe_layout.setRefreshing(false);
+                }
             }
         }
+    }
+
+    @Override
+    public void onRefresh() {
+        super.onRefresh();
+        reqData(URL_LIST,LOAD_TOP);
     }
 }

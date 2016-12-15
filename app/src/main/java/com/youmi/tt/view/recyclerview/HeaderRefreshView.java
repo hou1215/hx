@@ -1,8 +1,9 @@
-package com.youmi.tt.utils.v7;
+package com.youmi.tt.view.recyclerview;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -11,7 +12,6 @@ import android.widget.TextView;
 import com.aspsine.irecyclerview.RefreshTrigger;
 import com.youmi.tt.R;
 import com.youmi.tt.utils.AnimationUtil;
-import com.youmi.tt.utils.CommonUtils;
 
 /**
  * Created by aspsine on 16/4/7.
@@ -19,7 +19,6 @@ import com.youmi.tt.utils.CommonUtils;
 public class HeaderRefreshView extends FrameLayout implements RefreshTrigger {
 
     protected ImageView img_refresh_logo;
-    protected CircleView circleView;
 
     protected TextView tv_refresh_hint;
     protected TextView tv_refresh_title;
@@ -30,6 +29,7 @@ public class HeaderRefreshView extends FrameLayout implements RefreshTrigger {
     //    protected Animation animation;
     protected boolean refresh = false;
     private ObjectAnimator rotationAnimation;
+    private CircleView circleView;
 
     public HeaderRefreshView(Context context) {
         this(context, null);
@@ -41,13 +41,12 @@ public class HeaderRefreshView extends FrameLayout implements RefreshTrigger {
 
     public HeaderRefreshView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-
         init(context);
     }
 
     private void init(Context context) {
 
-        View view = CommonUtils.inflateView(context, R.layout.layout_refresh_header, this);
+        View view = LayoutInflater.from(context).inflate( R.layout.layout_refresh_header, null);
         this.addView(view);
 
         img_refresh_logo = (ImageView) view.findViewById(R.id.img_refresh_logo);

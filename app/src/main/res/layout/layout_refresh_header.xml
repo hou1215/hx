@@ -11,8 +11,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30px"
         android:gravity="center"
-        android:text="掌上生活, 轻松方便"
-        android:textColor="#00b80c"
+        android:text="掌上APP, 轻松方便"
         android:textSize="32px" />
 
     <LinearLayout
@@ -34,7 +33,7 @@
                 android:layout_gravity="center"
                 android:src="@mipmap/ic_launcher" />
 
-            <com.youmi.tt.utils.v7.CircleView
+            <com.youmi.tt.view.recyclerview.CircleView
                 android:id="@+id/img_refresh_progress"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

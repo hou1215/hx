@@ -1,4 +1,4 @@
-package com.youmi.tt.utils.v7;
+package com.youmi.tt.view.recyclerview;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
@@ -42,7 +42,7 @@ public class RecyclerViewWrap extends IRecyclerView {
     public void addHeaderView(View headerView) {
         header_count++;
         getHeaderContainer().addView(headerView);
-        Adapter adapter = getAdapter();
+        RecyclerView.Adapter adapter = getAdapter();
         if (adapter != null) {
             adapter.notifyDataSetChanged();
         }
@@ -56,7 +56,7 @@ public class RecyclerViewWrap extends IRecyclerView {
         }
         footer_count++;
         getFooterContainer().addView(footerView);
-        Adapter adapter = getAdapter();
+        RecyclerView.Adapter adapter = getAdapter();
         if (adapter != null) {
             adapter.notifyDataSetChanged();
         }
@@ -280,7 +280,7 @@ public class RecyclerViewWrap extends IRecyclerView {
 
                     @Override
                     public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                        LayoutManager layoutManager = recyclerView.getLayoutManager();
+                        RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
                         int visibleItemCount = layoutManager.getChildCount();
                         boolean triggerCondition = visibleItemCount > 0 && newState == 0 && this.canTriggerLoadMore(recyclerView);
                         if(triggerCondition) {
@@ -292,7 +292,7 @@ public class RecyclerViewWrap extends IRecyclerView {
                     public boolean canTriggerLoadMore(RecyclerView recyclerView) {
                         View lastChild = recyclerView.getChildAt(recyclerView.getChildCount() - 1);
                         int position = recyclerView.getChildLayoutPosition(lastChild);
-                        LayoutManager layoutManager = recyclerView.getLayoutManager();
+                        RecyclerView.LayoutManager layoutManager = recyclerView.getLayoutManager();
                         int totalItemCount = layoutManager.getItemCount();
 
                         if (getFooterViewCount() == 1){
@@ -416,12 +416,12 @@ public class RecyclerViewWrap extends IRecyclerView {
         return this.mFooterViewContainer;
     }
 
-    public Adapter getIAdapter() {
+    public RecyclerView.Adapter getIAdapter() {
         WrapperAdapter wrapperAdapter = (WrapperAdapter)this.getAdapter();
         return wrapperAdapter.getAdapter();
     }
 
-    public void setIAdapter(Adapter adapter) {
+    public void setIAdapter(RecyclerView.Adapter adapter) {
         this.ensureRefreshHeaderContainer();
         this.ensureHeaderViewContainer();
         this.ensureFooterViewContainer();
@@ -432,7 +432,7 @@ public class RecyclerViewWrap extends IRecyclerView {
     private void ensureRefreshHeaderContainer() {
         if(this.mRefreshHeaderContainer == null) {
             this.mRefreshHeaderContainer = new RefreshHeaderLayout(this.getContext());
-            this.mRefreshHeaderContainer.setLayoutParams(new LayoutParams(-1, 0));
+            this.mRefreshHeaderContainer.setLayoutParams(new RecyclerView.LayoutParams(-1, 0));
         }
 
     }
@@ -440,7 +440,7 @@ public class RecyclerViewWrap extends IRecyclerView {
     private void ensureLoadMoreFooterContainer() {
         if(this.mLoadMoreFooterContainer == null) {
             this.mLoadMoreFooterContainer = new FrameLayout(this.getContext());
-            this.mLoadMoreFooterContainer.setLayoutParams(new LayoutParams(-1, -2));
+            this.mLoadMoreFooterContainer.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
         }
 
     }
@@ -449,7 +449,7 @@ public class RecyclerViewWrap extends IRecyclerView {
         if(this.mHeaderViewContainer == null) {
             this.mHeaderViewContainer = new LinearLayout(this.getContext());
             this.mHeaderViewContainer.setOrientation(LinearLayout.VERTICAL);
-            this.mHeaderViewContainer.setLayoutParams(new LayoutParams(-1, -2));
+            this.mHeaderViewContainer.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
         }
 
     }
@@ -458,7 +458,7 @@ public class RecyclerViewWrap extends IRecyclerView {
         if(this.mFooterViewContainer == null) {
             this.mFooterViewContainer = new LinearLayout(this.getContext());
             this.mFooterViewContainer.setOrientation(LinearLayout.VERTICAL);
-            this.mFooterViewContainer.setLayoutParams(new LayoutParams(-1, -2));
+            this.mFooterViewContainer.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
         }
 
     }
@@ -583,7 +583,7 @@ public class RecyclerViewWrap extends IRecyclerView {
     }
 
     public boolean canTriggerRefresh() {
-        Adapter adapter = this.getAdapter();
+        RecyclerView.Adapter adapter = this.getAdapter();
         if(adapter != null && adapter.getItemCount() > 0) {
             View firstChild = this.getChildAt(0);
             int position = this.getChildLayoutPosition(firstChild);

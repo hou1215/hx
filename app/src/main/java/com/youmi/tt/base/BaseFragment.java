@@ -2,7 +2,6 @@ package com.youmi.tt.base;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,9 +18,8 @@ import com.youmi.tt.interfacelistener.IRefreshTopMoreListener;
 import com.youmi.tt.utils.ActivityUtil;
 import com.youmi.tt.utils.CommonUtils;
 import com.youmi.tt.utils.ImageLoader;
-import com.youmi.tt.utils.v7.HeaderRefreshView;
-import com.youmi.tt.utils.v7.ProgressImageView;
-import com.youmi.tt.utils.v7.RecyclerViewWrap;
+import com.youmi.tt.view.recyclerview.HeaderRefreshView;
+import com.youmi.tt.view.recyclerview.RecyclerViewWrap;
 
 
 /**
@@ -60,7 +58,6 @@ public abstract class BaseFragment extends Fragment
     protected int frag_what; // 绑定类型
 
     protected LinearLayout loadview_ll; // 加载父布局
-    protected ProgressImageView loadview_pb;
     protected TextView loadview_tv;
 
     public Activity getContext() {
@@ -301,7 +298,7 @@ public abstract class BaseFragment extends Fragment
      */
     protected void setRefreshLister(RecyclerViewWrap recyclerview) {
         HeaderRefreshView header = new HeaderRefreshView(getContext());
-        header.setLayoutParams(new RelativeLayout.LayoutParams(-1, (int) getDimen_(R.dimen.P100px)));
+        header.setLayoutParams(new RelativeLayout.LayoutParams(-1, 160));
 
         recyclerview.setRefreshHeaderView(header);
 
